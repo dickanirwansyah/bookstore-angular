@@ -1,6 +1,7 @@
 package com.bookstore.app.demobookstore.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -59,9 +60,12 @@ public class BukuServiceImpl implements BukuService{
 	}
 
 	@Override
-	public Buku delete(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Long id) {
+		Buku bukuId = this.getId(id);
+		if(bukuId == null) {
+			throw new ResourceNotFoundException("kode buku tidak valid");
+		}
+		bukuRepository.delete(bukuId);
 	}
 
 	@Override

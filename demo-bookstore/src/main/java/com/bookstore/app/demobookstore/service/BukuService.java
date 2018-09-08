@@ -17,5 +17,5 @@ public interface BukuService {
 	
 	Buku getId(Long id);
 	
-	Buku delete(Long id);
+	void delete(Long id);
 }
