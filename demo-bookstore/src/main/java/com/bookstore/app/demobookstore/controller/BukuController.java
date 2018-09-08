@@ -43,7 +43,7 @@ public class BukuController {
 									   @PathVariable("bukuId") Long bukuId,
 									   @RequestBody Buku buku){
 		
-		Buku updateBuku = bukuService.update(bukuId, penulisId, kategoriId, buku);
+		Buku updateBuku = bukuService.update(penulisId, kategoriId, bukuId, buku);
 		return ResponseEntity
 				.ok()
 				.body(updateBuku);
